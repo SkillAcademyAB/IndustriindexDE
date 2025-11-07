@@ -11,7 +11,11 @@ requires-python = ">=3.12"
 authors = [
     {name = "Björn Bergdahl", email = "bjorn.bergdahl@skill.se"}
 ]
-dependencies = []
+dependencies = [
+    "pyscbwrapper>=0.1.2"
+    "duckdb>=1.4.1"
+    "pandas>=2.3.3"
+]
 
 [project.scripts]
 industriindex-de = "src.__main__:main"
