@@ -15,6 +15,7 @@ dependencies = [
     "pyscbwrapper>=0.1.2"
     "duckdb>=1.4.1"
     "pandas>=2.3.3"
+    "fastapi[standard]>=0.121.0"
 ]
 
 [project.scripts]
