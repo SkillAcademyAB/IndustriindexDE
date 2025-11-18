@@ -9,7 +9,8 @@ description = "A Python project for IndustriindexDE"
 readme = "README.md"
 requires-python = ">=3.12"
 authors = [
-    {name = "Björn Bergdahl", email = "bjorn.bergdahl@skill.se"}
+    {name = "Björn Bergdahl", email = "bjorn.bergdahl@skill.se"},
+    {name = "Tomas Kindahl", email = "tomas.kindahl@skill.se"}
 ]
 dependencies = [
     "pyscbwrapper>=0.1.2"
