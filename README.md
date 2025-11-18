@@ -4,11 +4,11 @@ An index describing swedish counties and municipalities according to different i
 
 # Participation
 Use Git Flow model - branch names
-main — production-ready code; release branches are created from here
-develop — integration/staging branch
-feature/<ticket-id-or-short-description> — feature branches off develop
-release/<version> — preparation for production release (branched from develop, merged into main and back into develop)
-hotfix/<ticket-id-or-short-description> — urgent fixes off main (merged into main and back into develop)
+`main` — production-ready code; release branches are created from here
+`develop` — integration/staging branch
+`feature/<ticket-id-or-short-description>` — feature branches off develop
+`release/<version>` — preparation for production release (branched from develop, merged into main and back into develop)
+`hotfix/<ticket-id-or-short-description>` — urgent fixes off main (merged into main and back into develop)
 
 # Installation
 Install local environment using virtual environment. 
