@@ -19,5 +19,5 @@ Generally you want your .venv folder in the repo parent folder
 Activate your environment from the same .venv folder as above
 `.venv/Scripts/activate`
 
-Install all dependencies still standing in parent directory. Installs dependencies from pyproject.toml
+From the parent directory, install all dependencies (defined in pyproject.toml):
 `pip install -e .`
