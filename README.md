@@ -1,6 +1,6 @@
 # IndustriindexDE
 Data backend for IndustriIndex
-An index describing swedish counties and municipalities according to different industrial manufacturing dimensions.
+An index describing Swedish counties and municipalities according to different industrial manufacturing dimensions.
 
 # Participation
 Use Git Flow model - branch names
