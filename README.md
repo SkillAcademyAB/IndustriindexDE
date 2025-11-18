@@ -1,4 +1,4 @@
-# IndustriindexDE
+# IndustriIndexDE
 Data backend for IndustriIndex
 An index describing Swedish counties and municipalities according to different industrial manufacturing dimensions.
 
