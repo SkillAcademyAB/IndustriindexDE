@@ -28,7 +28,7 @@ Run the application with:<br>
 `industriindex-de`
 
 If installed in .[dev]-mode:
-Run linter (flake8)[https://pypi.org/project/flake8/]<br>
+Run linter [flake8](https://pypi.org/project/flake8/)<br>
 `flake8 source/` 
 Run code formatter [black](https://pypi.org/project/black/)<br>
 `black source/` 
