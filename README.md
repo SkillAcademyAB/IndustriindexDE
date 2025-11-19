@@ -34,4 +34,4 @@ Run code formatter (black)[https://pypi.org/project/black/]<br>
 `black source/` 
 or <br>
 `black --check source/`
-to se what black is going to reformat.
+to see what black is going to reformat.
