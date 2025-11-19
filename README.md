@@ -30,7 +30,7 @@ Run the application with:<br>
 If installed in .[dev]-mode:
 Run linter (flake8)[https://pypi.org/project/flake8/]<br>
 `flake8 source/` 
-Run code formatter (black)[https://pypi.org/project/black/]<br>
+Run code formatter [black](https://pypi.org/project/black/)<br>
 `black source/` 
 or <br>
 `black --check source/`
