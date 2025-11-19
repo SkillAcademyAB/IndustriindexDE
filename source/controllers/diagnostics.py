@@ -9,8 +9,7 @@ async def healthcheck_endpoint():
     Simple healthcheck endpoint that returns a string message.
     Use for healthchecks on server from other systems.
 
-    Args: No args
-    Returns: Static message: "message": "IndustriIndex Server online!"
-    Raises: No errors
+    Returns:
+        dict: A dictionary containing a message indicating the server is online.
     """
     return {"message": "IndustriIndex Server online!"}
