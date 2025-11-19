@@ -13,13 +13,14 @@ authors = [
     {name = "Tomas Kindahl", email = "tomas.kindahl@skill.se"}
 ]
 dependencies = [
-    "pyscbwrapper>=0.1.2"
-    "duckdb>=1.4.1"
-    "pandas>=2.3.3"
+    "pyscbwrapper>=0.1.2",
+    "duckdb>=1.4.1",
+    "pandas>=2.3.3",
+    "fastapi[standard]>=0.121.0"
 ]
 
 [project.scripts]
-industriindex-de = "src.__main__:main"
+industriindex-de = "source.__main__:main"
 
 [project.optional-dependencies]
 dev = [
