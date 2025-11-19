@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [project.scripts]
-industriindex-de = "src.__main__:main"
+industriindex-de = "source.__main__:main"
 
 [project.optional-dependencies]
 dev = [
