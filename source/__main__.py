@@ -9,7 +9,7 @@ app = FastAPI(
 
 # Include routers
 app.add_api_route("/", lambda: {"message": "Welcome to IndustriindexDE API"})
-app.include_router(test_router, tags=["test"])
+app.include_router(test_router, tags=["diagnostics"])
 
 
 def main():
