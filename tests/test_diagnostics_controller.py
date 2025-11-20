@@ -20,15 +20,8 @@ def test_healthcheck_endpoint_via_api():
     """
     response = client.get("/healthcheck")
     assert response.status_code == 200
-    assert response.json() == {"message": "IndustriIndex Server online!"}
-
-
-def test_healthcheck_endpoint_response_structure():
-    """
-    Test that the response has the expected structure.
-    """
-    response = client.get("/healthcheck")
     data = response.json()
+    assert data == {"message": "IndustriIndex Server online!"}
     assert "message" in data
     assert isinstance(data["message"], str)
     assert len(data["message"]) > 0
