@@ -12,8 +12,6 @@ async def test_healthcheck_endpoint_function():
     """
     result = await healthcheck_endpoint()
     assert result == {"message": "IndustriIndex Server online!"}
-    assert "message" in result
-    assert isinstance(result["message"], str)
 
 
 def test_healthcheck_endpoint_via_api():
