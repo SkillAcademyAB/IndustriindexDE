@@ -12,7 +12,7 @@ Use Git Flow model - branch names<br>
 
 # Installation
 Install local environment using virtual environment. <br>
-`python -m venv /path/to/new/virtual/environment`
+`python -m venv /path/to/new/virtual/environment`<br>
 Generally you want your .venv folder in the repo parent folder<br>
 `python -m venv .venv`
 
@@ -20,18 +20,18 @@ Activate your environment from the same .venv folder as above<br>
 `.venv/Scripts/activate`
 
 From the parent directory, install all dependencies (defined in pyproject.toml):<br>
-`pip install -e .`
-OR<br>
+`pip install -e .`<br>
+*or* <br>
 `pip install -e ".[dev]"` to install with dev dependencies (formatter, linter)
 
 Run the application with:<br>
-`industriindex-de`
+`industriindex-de`<br>
 
 If installed in .[dev]-mode:
 Run linter [flake8](https://pypi.org/project/flake8/)<br>
-`flake8 source/` 
+`flake8 source/` <br>
 Run code formatter [black](https://pypi.org/project/black/)<br>
-`black source/` 
-or <br>
-`black --check source/`
+`black source/` <br>
+*or* <br>
+`black --check source/`<br>
 to see what black is going to reformat.
