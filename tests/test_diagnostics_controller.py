@@ -6,11 +6,11 @@ from source.controllers.diagnostics import healthcheck_endpoint
 client = TestClient(app)
 
 
-def test_healthcheck_endpoint_function():
+async def test_healthcheck_endpoint_function():
     """
     Test the healthcheck_endpoint function directly.
     """
-    result = healthcheck_endpoint()
+    result = await healthcheck_endpoint()
     assert result == {"message": "IndustriIndex Server online!"}
     assert "message" in result
     assert isinstance(result["message"], str)
