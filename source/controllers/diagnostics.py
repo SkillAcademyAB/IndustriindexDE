@@ -10,6 +10,7 @@ async def healthcheck_endpoint():
     Use for healthchecks on server from other systems.
 
     Returns:
-        dict: A dictionary containing a message indicating the server is online.
+        dict: A dictionary containing a message indicating the server is
+            online.
     """
     return {"message": "IndustriIndex Server online!"}
