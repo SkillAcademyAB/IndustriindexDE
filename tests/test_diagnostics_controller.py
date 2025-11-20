@@ -34,4 +34,3 @@ def test_healthcheck_endpoint_response_structure():
     assert "message" in data
     assert isinstance(data["message"], str)
     assert len(data["message"]) > 0
-    
