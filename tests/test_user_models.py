@@ -82,9 +82,10 @@ class TestUserModel:
     def test_create_user(self, margravate_inc):
         """Test creating a User instance."""
         user = User(
-            id=None, name="Jobst Luxemburg",
+            id=None,
+            name="Jobst Luxemburg",
             organization=margravate_inc
-            )
+        )
 
         assert user.id is None
         assert user.name == "Jobst Luxemburg"
