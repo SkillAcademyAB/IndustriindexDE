@@ -204,7 +204,7 @@ class TestUserOrganizationIntegration:
         assert all(user.organization == margravate for user in users)
         assert all(
             user.organization.name == "Margravate Inc" for user in users
-            )
+        )
         # All users share the same mail suffixes through the organization
         assert all(
             "@margravate.com" in user.organization.mail_suffixes
