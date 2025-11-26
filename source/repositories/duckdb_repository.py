@@ -2,9 +2,28 @@
 DuckDB Repository for local database operations.
 """
 
+import re
 import duckdb
 from pathlib import Path
 from typing import Any, List, Optional
+
+
+def _validate_table_name(table_name: str) -> None:
+    """
+    Validate that a table name is safe for use in SQL queries.
+
+    Args:
+        table_name: The table name to validate
+
+    Raises:
+        ValueError: If the table name contains invalid characters
+    """
+    if not table_name or not re.match(r'^[A-Za-z_][A-Za-z0-9_]*$', table_name):
+        raise ValueError(
+            f"Invalid table name: '{table_name}'. Table names must start with "
+            "a letter or underscore and contain only alphanumeric characters "
+            "and underscores."
+        )
 
 
 class DuckDBRepository:
@@ -73,7 +92,11 @@ class DuckDBRepository:
             df: Pandas DataFrame
             table_name: Name of the table to create
             if_exists: Action if table exists ('replace', 'append', 'fail')
+
+        Raises:
+            ValueError: If table_name contains invalid characters
         """
+        _validate_table_name(table_name)
         conn = self.get_connection()
         # Register the DataFrame as a DuckDB view for SQL access
         conn.register("df", df)
