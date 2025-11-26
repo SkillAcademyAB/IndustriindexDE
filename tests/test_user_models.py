@@ -81,7 +81,10 @@ class TestUserModel:
 
     def test_create_user(self, margravate_inc):
         """Test creating a User instance."""
-        user = User(id=None, name="Jobst Luxemburg", organization=margravate_inc)
+        user = User(
+            id=None, name="Jobst Luxemburg",
+            organization=margravate_inc
+            )
 
         assert user.id is None
         assert user.name == "Jobst Luxemburg"
@@ -93,7 +96,9 @@ class TestUserModel:
     def test_user_with_id(self, margravate_inc):
         """Test creating a User with an ID."""
         user = User(
-            id="user-jobst-001", name="Jobst Luxemburg", organization=margravate_inc
+            id="user-jobst-001",
+            name="Jobst Luxemburg",
+            organization=margravate_inc
         )
 
         assert user.id == "user-jobst-001"
@@ -101,7 +106,9 @@ class TestUserModel:
 
     def test_user_organization_relationship(self, margravate_inc):
         """Test User's relationship with Organization."""
-        user = User(id=None, name="Jobst Luxemburg", organization=margravate_inc)
+        user = User(
+            id=None, name="Jobst Luxemburg", organization=margravate_inc
+        )
 
         assert user.organization.name == "Margravate Inc"
         assert user.organization.email == "contact@margravate.com"
@@ -137,8 +144,16 @@ class TestUserModel:
 
     def test_user_equality(self, margravate_inc):
         """Test User equality comparison."""
-        user1 = User(id="user-1", name="Jobst Luxemburg", organization=margravate_inc)
-        user2 = User(id="user-1", name="Jobst Luxemburg", organization=margravate_inc)
+        user1 = User(
+            id="user-1",
+            name="Jobst Luxemburg",
+            organization=margravate_inc
+            )
+        user2 = User(
+            id="user-1",
+            name="Jobst Luxemburg",
+            organization=margravate_inc
+            )
 
         assert user1 == user2
 
@@ -158,7 +173,9 @@ class TestUserOrganizationIntegration:
 
         # Create the user
         jobst = User(
-            id="user-jobst-001", name="Jobst Luxemburg", organization=margravate
+            id="user-jobst-001",
+            name="Jobst Luxemburg",
+            organization=margravate
         )
 
         # Verify the relationship
@@ -184,8 +201,11 @@ class TestUserOrganizationIntegration:
 
         # All users should reference the same organization
         assert all(user.organization == margravate for user in users)
-        assert all(user.organization.name == "Margravate Inc" for user in users)
+        assert all(
+            user.organization.name == "Margravate Inc" for user in users
+            )
         # All users share the same mail suffixes through the organization
         assert all(
-            "@margravate.com" in user.organization.mail_suffixes for user in users
+            "@margravate.com" in user.organization.mail_suffixes
+            for user in users
         )
