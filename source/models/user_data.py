@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass
@@ -16,7 +16,7 @@ class Organization:
     id: Optional[str]
     name: str
     email: str
-    mail_suffixes: list[str]
+    mail_suffixes: List[str]
 
 
 @dataclass
