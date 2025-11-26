@@ -75,10 +75,28 @@ class DuckDBRepository:
             if_exists: Action if table exists ('replace', 'append', 'fail')
         """
         conn = self.get_connection()
+        # Register the DataFrame as a DuckDB view for SQL access
+        conn.register("df", df)
+        # Check if the table exists
+        table_exists = conn.execute(
+            f"SELECT COUNT(*) FROM information_schema.tables WHERE table_name = '{table_name}'"
+        ).fetchone()[0] > 0
         if if_exists == "replace":
-            conn.execute(f"DROP TABLE IF EXISTS {table_name}")
-        conn.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
-
+            if table_exists:
+                conn.execute(f"DROP TABLE {table_name}")
+            conn.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
+        elif if_exists == "fail":
+            if table_exists:
+                raise ValueError(f"Table '{table_name}' already exists.")
+            conn.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
+        elif if_exists == "append":
+            if table_exists:
+                # Insert rows from df into the existing table
+                conn.execute(f"INSERT INTO {table_name} SELECT * FROM df")
+            else:
+                conn.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
+        else:
+            raise ValueError(f"Invalid value for if_exists: {if_exists}")
     def query_to_dataframe(self, query: str) -> Any:
         """
         Execute a query and return results as a pandas DataFrame.
