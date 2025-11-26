@@ -1,3 +1,4 @@
+import pytest
 from fastapi.testclient import TestClient
 from source.__main__ import app
 from source.controllers.diagnostics import healthcheck_endpoint
@@ -6,6 +7,7 @@ from source.controllers.diagnostics import healthcheck_endpoint
 client = TestClient(app)
 
 
+@pytest.mark.asyncio
 async def test_healthcheck_endpoint_function():
     """
     Test the healthcheck_endpoint function directly.

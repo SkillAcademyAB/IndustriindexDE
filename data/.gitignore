@@ -1,0 +1,4 @@
+# Data directory for local databases
+*.duckdb
+*.json
+!.gitkeep

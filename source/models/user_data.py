@@ -7,7 +7,7 @@ class Organization:
     id: Optional[str]
     name: str
     email: str
-    organization: str
+    mail_suffixes: list[str]
 
 
 @dataclass
@@ -15,4 +15,3 @@ class User:
     id: Optional[str]
     name: str
     organization: Organization
-    mail_suffixes: list[str]
