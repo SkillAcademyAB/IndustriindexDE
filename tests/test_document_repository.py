@@ -45,7 +45,9 @@ def sample_organization():
 @pytest.fixture
 def sample_user(sample_organization):
     """Create a sample user for testing."""
-    return User(id=None, name="Jobst Luxemburg", organization=sample_organization)
+    return User(
+        id=None, name="Jobst Luxemburg", organization=sample_organization
+    )
 
 
 class TestDocumentRepositoryBasicOperations:
@@ -131,7 +133,7 @@ class TestDocumentRepositoryBasicOperations:
         total_count = document_repo.count()
         assert total_count == 3
 
-        active_count = document_repo.count(where("active") == True)
+        active_count = document_repo.count(where("active") is True)
         assert active_count == 2
 
 
@@ -185,7 +187,9 @@ class TestOrganizationAndUserStorage:
         assert "@margravate.com" in stored_org["mail_suffixes"]
         assert "@luxemburg.eu" in stored_org["mail_suffixes"]
 
-    def test_search_user_by_organization(self, document_repo, sample_organization):
+    def test_search_user_by_organization(
+        self, document_repo, sample_organization
+    ):
         """Test searching for users by organization."""
         # Insert organization
         org_dict = {
@@ -224,7 +228,9 @@ class TestOrganizationAndUserStorage:
         assert "Jobst Luxemburg" in user_names
         assert "Jane Doe" in user_names
 
-    def test_update_organization_email_suffix(self, document_repo, sample_organization):
+    def test_update_organization_email_suffix(
+        self, document_repo, sample_organization
+    ):
         """Test updating organization email suffixes."""
         org_dict = {
             "name": sample_organization.name,
@@ -238,7 +244,13 @@ class TestOrganizationAndUserStorage:
 
         # Update organization to add new email suffix
         document_repo.update(
-            {"mail_suffixes": ["@margravate.com", "@luxemburg.eu", "@jobst.de"]},
+            {
+                "mail_suffixes": [
+                    "@margravate.com",
+                    "@luxemburg.eu",
+                    "@jobst.de",
+                ]
+            },
             where("name") == "Margravate Inc",
             "organizations",
         )
