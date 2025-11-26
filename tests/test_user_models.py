@@ -149,12 +149,12 @@ class TestUserModel:
             id="user-1",
             name="Jobst Luxemburg",
             organization=margravate_inc
-            )
+        )
         user2 = User(
             id="user-1",
             name="Jobst Luxemburg",
             organization=margravate_inc
-            )
+        )
 
         assert user1 == user2
 
