@@ -133,7 +133,11 @@ class TestDocumentRepositoryBasicOperations:
         total_count = document_repo.count()
         assert total_count == 3
 
-        active_count = document_repo.count(where("active") is True)
+        # Query for documents where active is True
+        # Note: == True is correct for TinyDB query building
+        active_count = document_repo.count(
+            where("active") == True  # noqa: E712
+        )
         assert active_count == 2
 
 
