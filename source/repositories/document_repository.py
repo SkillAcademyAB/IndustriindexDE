@@ -51,7 +51,9 @@ class DocumentRepository:
         db = self.get_db()
         return db.table(table_name)
 
-    def insert(self, document: Dict[str, Any], table_name: str = "_default") -> int:
+    def insert(
+        self, document: Dict[str, Any], table_name: str = "_default"
+    ) -> int:
         """
         Insert a document into the database.
 
@@ -166,7 +168,9 @@ class DocumentRepository:
         table = self.get_table(table_name)
         return table.upsert(document, condition)
 
-    def remove(self, condition: Callable, table_name: str = "_default") -> List[int]:
+    def remove(
+        self, condition: Callable, table_name: str = "_default"
+    ) -> List[int]:
         """
         Remove documents matching a condition.
 
@@ -191,7 +195,9 @@ class DocumentRepository:
         table.truncate()
 
     def count(
-        self, condition: Optional[Callable] = None, table_name: str = "_default"
+        self,
+        condition: Optional[Callable] = None,
+        table_name: str = "_default",
     ) -> int:
         """
         Count documents in a table.
