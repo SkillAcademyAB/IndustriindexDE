@@ -85,7 +85,7 @@ to install with dev dependencies (formatter, linter)
 
 Run the application with:
 ```
-. .venv/bin/industriindex-de
+.venv/bin/industriindex-de
 ```
 If installed in .[dev]-mode:
 Run linter [flake8](https://pypi.org/project/flake8/)
