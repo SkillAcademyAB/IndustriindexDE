@@ -44,4 +44,5 @@ RUN chown -R $USERNAME:$USERNAME /workspace
 USER $USERNAME
 
 # ────────────── Default command ──────────────
-CMD ["python", "-m", "src.__main__"]
+EXPOSE 8000
+CMD ["python", "-m", "industriindex_de"]

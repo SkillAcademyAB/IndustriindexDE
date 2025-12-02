@@ -5,7 +5,7 @@ Tests for DuckDBRepository class.
 import pytest
 import pandas as pd
 from pathlib import Path
-from src.repositories import DuckDBRepository
+from industriindex_de.repositories import DuckDBRepository
 import gc
 
 

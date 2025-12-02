@@ -87,6 +87,37 @@ Run the application with:
 ```
 .venv/bin/industriindex-de
 ```
+
+## Docker
+
+Build the image from the repository root:
+```powershell
+docker build -t industriindex-de .
+```
+
+Run the container and forward port 8000 to the host:
+```powershell
+docker run --rm -p 8000:8000 industriindex-de
+```
+
+The app listens on `0.0.0.0:8000`; verify healthcheck at `http://localhost:8000/healthcheck`.
+
+## Devcontainer — debug / development mode
+
+When using the VS Code devcontainer, run the app in debug/reload mode with Uvicorn so code changes are reloaded automatically.
+
+Install dev dependencies in the container or dev environment:
+```bash
+pip install -e '.[dev]'
+```
+
+Start the app with automatic reload (works in the devcontainer terminal):
+```bash
+# runs the app and enables reload on code changes
+uvicorn industriindex_de.__main__:app --reload --host 0.0.0.0 --port 8000
+```
+
+You can then connect to the app on the forwarded port (usually `localhost:8000` on the host).
 If installed in .[dev]-mode:
 Run linter [flake8](https://pypi.org/project/flake8/)
 ```
