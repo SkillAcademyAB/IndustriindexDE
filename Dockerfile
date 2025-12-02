@@ -8,9 +8,10 @@ ARG USER_GID=$USER_UID
 
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    && apt-get update && apt-get install -y --no-install-recommends \
-    sudo \
-    build-essential \
+  && apt-get update && apt-get install -y --no-install-recommends \
+  sudo \
+  build-essential \
+  curl \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME \
     && rm -rf /var/lib/apt/lists/*
@@ -45,4 +46,9 @@ USER $USERNAME
 
 # ────────────── Default command ──────────────
 EXPOSE 8000
+
+# Docker healthcheck: ensure the app responds on /healthcheck
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+  CMD curl -f http://127.0.0.1:8000/healthcheck || exit 1
+
 CMD ["python", "-m", "industriindex_de"]
