@@ -121,7 +121,7 @@ class DuckDBRepository:
                 conn.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
         else:
             raise ValueError(f"Invalid value for if_exists: {if_exists}")
-        
+      
     def query_to_dataframe(self, query: str) -> Any:
         """
         Execute a query and return results as a pandas DataFrame.

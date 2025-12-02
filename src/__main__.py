@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.controllers.diagnostics import router as test_router
+from .controllers.diagnostics import router as test_router
 
 app = FastAPI(
     title="IndustriindexDE API",
