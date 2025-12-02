@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 [project.scripts]
-industriindex-de = "source.__main__:main"
+industriindex-de = "src.__main__:main"
 
 [project.optional-dependencies]
 dev = [
@@ -32,7 +32,7 @@ dev = [
 ]
 
 [tool.setuptools]
-package-dir = {"" = "source"}
+package-dir = {"" = "src"}
 
 [tool.black]
 line-length = 88

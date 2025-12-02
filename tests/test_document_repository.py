@@ -1,8 +1,8 @@
 import pytest
 from pathlib import Path
 from tinydb import where
-from source.repositories import DocumentRepository
-from source.models.user_data import Organization, User
+from src.repositories import DocumentRepository
+from src.models.user_data import Organization, User
 import gc
 
 

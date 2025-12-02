@@ -47,15 +47,15 @@ If installed in .[dev]-mode:
 
 Run linter [flake8](https://pypi.org/project/flake8/)
 ```
-flake8 source/
+flake8 src/
 ```
 Run code formatter [black](https://pypi.org/project/black/)
 ```
-black source/
+black src/
 ```
 *or*
 ```
-black --check source/
+black --check src/
 ```
 to see what black is going to reformat.
 
@@ -90,15 +90,15 @@ Run the application with:
 If installed in .[dev]-mode:
 Run linter [flake8](https://pypi.org/project/flake8/)
 ```
-flake8 source/
+flake8 src/
 ```
 Run code formatter [black](https://pypi.org/project/black/)
 ```
-black source/
+black src/
 ```
 *or*
 ```
-black --check source/
+black --check src/
 ```
 to see what black is going to reformat.
 

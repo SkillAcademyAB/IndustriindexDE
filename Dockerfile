@@ -20,7 +20,7 @@ WORKDIR /workspace
 
 # Copy project files
 COPY pyproject.toml .
-COPY source ./source
+COPY src ./src
 COPY tests ./tests
 COPY README.md .
 
@@ -44,4 +44,4 @@ RUN chown -R $USERNAME:$USERNAME /workspace
 USER $USERNAME
 
 # ────────────── Default command ──────────────
-CMD ["python", "-m", "source.__main__"]
+CMD ["python", "-m", "src.__main__"]
