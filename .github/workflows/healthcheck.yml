@@ -1,0 +1,50 @@
+name: Healthcheck
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch: {}
+
+jobs:
+  healthcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU and Buildx (for cross-platform builds)
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: |
+          docker build --progress=plain -t industriindex-de:ci .
+
+      - name: Run container
+        shell: bash
+        run: |
+          # Run container detached bound to 8000
+          docker run -d --rm --name ci-industriindex-de -p 8000:8000 industriindex-de:ci
+
+          # wait for the service to become available (max ~30s)
+          success=1
+          for i in {1..30}; do
+            if curl -sSf http://127.0.0.1:8000/healthcheck -o /dev/null; then
+              echo "healthcheck OK"
+              success=0
+              break
+            fi
+            sleep 1
+          done
+
+          if [ "$success" -ne 0 ]; then
+            echo "Healthcheck failed; dumping container logs"
+            docker logs ci-industriindex-de || true
+            docker stop ci-industriindex-de || true
+            exit 1
+          fi
+
+          # stop the container once check is done
+          docker stop ci-industriindex-de || true
+
