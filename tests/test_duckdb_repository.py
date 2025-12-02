@@ -62,7 +62,8 @@ class TestDuckDBRepositoryInitialization:
         assert conn is not None
 
     def test_get_connection_returns_same_connection(self, duckdb_repo):
-        """Test that get_connection returns the same connection on multiple calls."""
+        """Test that get_connection returns the same connection on
+        multiple calls."""
         conn1 = duckdb_repo.get_connection()
         conn2 = duckdb_repo.get_connection()
         assert conn1 is conn2

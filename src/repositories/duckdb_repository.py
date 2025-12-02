@@ -102,7 +102,8 @@ class DuckDBRepository:
         conn.register("df", df)
         # Check if the table exists
         table_exists = conn.execute(
-            f"SELECT COUNT(*) FROM information_schema.tables WHERE table_name = '{table_name}'"
+            f"SELECT COUNT(*) FROM information_schema.tables "
+            f"WHERE table_name = '{table_name}'"
         ).fetchone()[0] > 0
         if if_exists == "replace":
             if table_exists:
@@ -120,6 +121,7 @@ class DuckDBRepository:
                 conn.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
         else:
             raise ValueError(f"Invalid value for if_exists: {if_exists}")
+        
     def query_to_dataframe(self, query: str) -> Any:
         """
         Execute a query and return results as a pandas DataFrame.
