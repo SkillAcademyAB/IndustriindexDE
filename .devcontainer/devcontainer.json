@@ -1,0 +1,29 @@
+{
+  "name": "IndustriindexDE Python Dev",
+  "dockerFile": "../Dockerfile",
+  "context": "..",
+  "build": {
+    "args": {
+      "ENV": "dev"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python3"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+  "remoteUser": "vscode",
+  "mounts": [
+    "source=${localWorkspaceFolder}/data,target=/workspace/data,type=bind"
+  ],
+  "postCreateCommand": "pip install --upgrade pip && pip install .[dev] && pytest || true"
+}
